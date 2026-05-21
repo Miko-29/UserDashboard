@@ -1,0 +1,70 @@
+<!-- Modal Overlay -->
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+
+  <!-- Modal Container -->
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <!-- Modal Header -->
+    <div class="modal__header">
+      <h3 class="modal__title text-headline-md">Add New User</h3>
+      <button class="modal__close-btn" type="button" (click)="onClose()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Modal Body (Form) -->
+    <div class="modal__body">
+
+      <!-- Full Name Field -->
+      <div class="form-field">
+        <label class="form-field__label" for="fullName">Full Name</label>
+        <input
+          class="form-input"
+          id="fullName"
+          type="text"
+          placeholder="e.g. Jane Doe"
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-field">
+        <label class="form-field__label" for="email">Email Address</label>
+        <input
+          class="form-input"
+          id="email"
+          type="email"
+          placeholder="jane.doe&#64;company.com"
+        />
+      </div>
+
+      <!-- Role Field -->
+      <div class="form-field">
+        <label class="form-field__label" for="role">Role</label>
+        <div class="form-select-wrapper">
+          <select class="form-select" id="role">
+            <option value="viewer">Viewer</option>
+            <option value="editor">Editor</option>
+            <option value="admin">Admin</option>
+          </select>
+          <div class="form-select-wrapper__icon">
+            <span class="material-symbols-outlined">expand_more</span>
+          </div>
+        </div>
+        <p class="form-field__hint">Select the access level for this user.</p>
+      </div>
+
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal__footer">
+      <button class="modal__btn-cancel" type="button" (click)="onClose()">
+        Cancel
+      </button>
+      <button class="modal__btn-submit" type="button" (click)="onSubmit()">
+        <span class="material-symbols-outlined">person_add</span>
+        Add User
+      </button>
+    </div>
+
+  </div>
+</div>

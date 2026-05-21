@@ -1,0 +1,145 @@
+<main class="dashboard">
+  <!-- Page Header -->
+  <div class="dashboard__header">
+    <h2 class="dashboard__title text-display-lg">User Management</h2>
+    <button class="btn btn--primary" (click)="openModal()">
+      <span class="material-symbols-outlined" style="font-size:20px;">add</span>
+      Add User
+    </button>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="dashboard__grid">
+
+    <!-- Account Distribution Chart -->
+    <div class="card card--padded">
+      <h3 class="chart-section__title text-headline-md">Account Distribution</h3>
+      <div class="chart-section__container">
+        <canvas id="roleDistributionChart" class="chart-section__canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent Users Table -->
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title text-headline-md">Recent Users</h3>
+      </div>
+
+      <div class="data-table__wrapper">
+        <table class="data-table">
+          <thead>
+            <tr class="data-table__head-row">
+              <th class="data-table__head-cell">Name</th>
+              <th class="data-table__head-cell">Email</th>
+              <th class="data-table__head-cell">Role</th>
+              <th class="data-table__head-cell data-table__head-cell--right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="data-table__body">
+            <!-- User Row 1 -->
+            <tr class="data-table__row">
+              <td class="data-table__cell data-table__cell--name">
+                <div class="data-table__avatar data-table__avatar--admin">AJ</div>
+                Alice Johnson
+              </td>
+              <td class="data-table__cell data-table__cell--email">alice&#64;example.com</td>
+              <td class="data-table__cell">
+                <span class="badge badge--admin">Admin</span>
+              </td>
+              <td class="data-table__cell data-table__cell--actions">
+                <button class="data-table__action-btn">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </button>
+              </td>
+            </tr>
+            <!-- User Row 2 -->
+            <tr class="data-table__row">
+              <td class="data-table__cell data-table__cell--name">
+                <div class="data-table__avatar data-table__avatar--editor-1">BS</div>
+                Bob Smith
+              </td>
+              <td class="data-table__cell data-table__cell--email">bob.smith&#64;example.com</td>
+              <td class="data-table__cell">
+                <span class="badge badge--editor">Editor</span>
+              </td>
+              <td class="data-table__cell data-table__cell--actions">
+                <button class="data-table__action-btn">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </button>
+              </td>
+            </tr>
+            <!-- User Row 3 -->
+            <tr class="data-table__row">
+              <td class="data-table__cell data-table__cell--name">
+                <div class="data-table__avatar data-table__avatar--viewer-1">CD</div>
+                Carol Davis
+              </td>
+              <td class="data-table__cell data-table__cell--email">carol.d&#64;example.com</td>
+              <td class="data-table__cell">
+                <span class="badge badge--viewer">Viewer</span>
+              </td>
+              <td class="data-table__cell data-table__cell--actions">
+                <button class="data-table__action-btn">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </button>
+              </td>
+            </tr>
+            <!-- User Row 4 -->
+            <tr class="data-table__row">
+              <td class="data-table__cell data-table__cell--name">
+                <div class="data-table__avatar data-table__avatar--editor-2">EW</div>
+                Evan Wright
+              </td>
+              <td class="data-table__cell data-table__cell--email">evan.w&#64;example.com</td>
+              <td class="data-table__cell">
+                <span class="badge badge--editor">Editor</span>
+              </td>
+              <td class="data-table__cell data-table__cell--actions">
+                <button class="data-table__action-btn">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </button>
+              </td>
+            </tr>
+            <!-- User Row 5 -->
+            <tr class="data-table__row">
+              <td class="data-table__cell data-table__cell--name">
+                <div class="data-table__avatar data-table__avatar--viewer-2">FL</div>
+                Fiona Lee
+              </td>
+              <td class="data-table__cell data-table__cell--email">fiona.lee&#64;example.com</td>
+              <td class="data-table__cell">
+                <span class="badge badge--viewer">Viewer</span>
+              </td>
+              <td class="data-table__cell data-table__cell--actions">
+                <button class="data-table__action-btn">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <span class="pagination__info">Showing 1 to 5 of 24 users</span>
+        <div class="pagination__controls">
+          <button class="pagination__btn" disabled>&lt;</button>
+          <button class="pagination__btn pagination__btn--active">1</button>
+          <button class="pagination__btn">2</button>
+          <button class="pagination__btn">3</button>
+          <button class="pagination__btn">&gt;</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Add User Modal -->
+@if (showModal) {
+  <app-user-form-component
+    (close)="closeModal()"
+    (submit)="closeModal()">
+  </app-user-form-component>
+}
